@@ -3,7 +3,7 @@ import os
 import csv
 
 
-#newGame.csv recource
+# newGame.csv recource
 os.system("type nul > newGame.csv")
 f = open("newGame.csv", "w")
 fwrite = csv.writer(f)
@@ -12,7 +12,7 @@ fwrite.writerow(newGame)
 f.close()
 
 
-#regions.csv recource
+# regions.csv recource
 os.system("type nul > regions.csv")
 f = open("regions.csv", "w")
 fwrite = csv.writer(f)
@@ -30,7 +30,6 @@ os.system("type nul > lori.csv")
 f = open("lori.csv", "w")
 fwrite = csv.writer(f)
 loriAblities = ["Stanima","Slash", "Sweeping Slash", "Second Wind", "Guard Up"]
-loriCommands = ["recource","attack","attackAll", "healSelf", "raiseDef"] 
 loriCosts = [0,0,1,5,2]
 loriLevels = [[1,10,5,5,1],
 	[2,11,5,5,2],
@@ -43,7 +42,6 @@ loriLevels = [[1,10,5,5,1],
 	[9,20,7,7,10],
 	[10,2,1,2,0]]
 fwrite.writerow(loriAblities)
-fwrite.writerow(loriCommands)
 fwrite.writerow(loriCosts)
 for level in loriLevels:
 	fwrite.writerow(level)
@@ -54,7 +52,6 @@ os.system("type nul > lauren.csv")
 f = open("lauren.csv", "w")
 fwrite = csv.writer(f)
 laurenAblities = ["Light Arrows","Smiting Arrow", "Restoring Arrow", "Focus Light", "Quick Hands"]
-laurenCommands = ["recource","attack","healTarget", "critUp", "itemsTwo"] 
 laurenCosts = [0,1,1,1,0]
 laurenLevels = [[1,10,7,2,5],
 	[2,10,10,2,7],
@@ -67,7 +64,6 @@ laurenLevels = [[1,10,7,2,5],
 	[9,15,14,6,10],
 	[10,1,2,1,0]]
 fwrite.writerow(laurenAblities)
-fwrite.writerow(laurenCommands)
 fwrite.writerow(laurenCosts)
 for level in laurenLevels:
 	fwrite.writerow(level)
