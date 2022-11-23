@@ -1,0 +1,52 @@
+Thief,6,2,1,50,-1,Dagger,1
+Dire Cat,6,3,0,-1,50,Claw,1
+Wolf,7,3,1,-1,50,Fangs,1
+Bandit,10,4,2,-1,50,Short Sword,1
+Cultist,7,5,1,20,20,Short Sword,1
+Rouge,7,6,1,30,-1,Rapier,1
+Mage Apprentice,10,7,1,30,30,Fire Bolt,1
+Living Shrub,7,3,2,-1,30,Sharp Stick,1
+Ronin,10,6,4,30,30,Katana,1
+Slime,6,3,1,-1,80,Body,1
+Experienced Ronin,15,7,4,50,-1,Katana,2
+Thug,10,6,5,25,25,Mace,2
+Wannabe Squire,10,5,6,40,40,Short Sword,2
+Veteran Thief,11,7,6,40,-1,Short Sword,3
+Dire Wolf,12,8,6,-1,40,Fangs,3
+Wyvern,12,8,6,-1,60,Dragon Claws,3
+Goblin,7,4,4,12,12,Short Sword,4
+Goblin Squire,10,5,5,18,18,Spear,4
+Goblin Knight,10,5,7,35,35,Spear,4
+Veteran Bandit,15,9,7,25,25,War Hammer,5
+Zombie,15,3,7,-1,40,Fist,4
+Skeleton,6,15,2,-1,60,Short Sword,4
+Necromancy Fanatic,12,10,6,20,20,Short Sword,5
+Necromancer,15,12,6,10,-1,Dark Bolt,6
+Veteran Rouge,12,11,6,20,-1,Rapier,5
+Mage,15,15,6,70,-1,Thunder Bolt,6
+Giant Wolf,17,13,11,-1,60,Fangs,7
+Exiled Squire,15,10,11,90,-1,Long Sword,7
+Veteran Thug,15,11,10,20,20,Great Sword,8
+Shambling Moss,12,8,7,-1,40,Thorn Fist,6
+Snake,10,21,1,-1,90,Fangs,6
+Sand Elemental,15,12,12,-1,90,Sand,7
+Traveling Swordsman,15,13,8,60,-1,Long Sword,7
+Master Thief,16,12,11,80,-1,Short Sword,8
+Fire Mage,15,18,3,50,-1,Fire Ball,6
+Crazed Prophet,1,32,1,-1,90,Shadow Bolt,7
+Survivor,30,8,8,35,35,Long Sword,6
+Warrior in Training,20,12,8,70,-1,Great Sword,8
+Desert Hound,10,15,8,-1,50,Fangs,7
+Sand Worm,50,9,9,-1,100,Giant Fangs,9
+Orc,20,10,10,-1,50,Great Axe,8
+Warrior,25,17,13,-1,60,Great Sword,9
+Veteran Orc,25,15,15,-1,70,Great Axe,9
+Master Bandit,20,14,12,-1,80,Great Axe,8
+Master Rouge,17,16,11,20,-1,Rapier,9
+Giant Dire Wolf,22,18,16,-1,60,Giant Fangs,10
+Elite Orc,30,20,20,-1,80,Long Sword,11
+Master Ronin,25,17,14,40,-1,Katana,10
+Orc Boss,35,25,25,20,-1,Long Sword,12
+Young Dragon,50,20,20,-1,90,Dragon Claw,13
+Adult Dragon,50,25,25,-1,90,Dragon Claw,14
+Ancient Dragon,100,25,25,-1,90,Dragon Claw,15

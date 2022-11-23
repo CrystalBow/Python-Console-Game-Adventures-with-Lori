@@ -1,22 +1,33 @@
 #!/usr/bin/env python
-# imports
-import csv
-from Character import Character
-from Monster import Monster
-from PlayableCharacter import PlayableCharacter
+#imports
 import os
-
-# Variables
+import csv
+#Variables
 currentAwnser = 0
 x = 0
 y = 0
 z = 0
 chapter = 0
-Lori = PlayableCharacter("Lori")
-Lauren = PlayableCharacter("Lauren")
-
-# Functions
-def inputAndCheck(question, validAwnsers): # validAwnsers must be a list
+loriLvl = 0
+loriHp = 0
+loriAtk = 0
+loriDef = 0
+loriStanima = 0
+loriEXP = 0
+loriActions = []
+loriCommands = []
+loriCosts = []
+laurenLvl = 0
+laurenHp = 0
+laurenAtk = 0
+laurenDef = 0
+laurenArrows = 0
+laurenEXP = 0
+laurenActions = []
+laurenCommands = []
+laurenCosts = []
+#Functions
+def inputAndCheck(question, validAwnsers): #validAwnsers must be a list
 	global currentAwnser
 	awnserString = input(question)
 	validaty = False
@@ -42,39 +53,55 @@ def inputAndCheck(question, validAwnsers): # validAwnsers must be a list
 		else:
 			input("Success: Valid Awnser")
 			currentAwnser =  convertedAwnser
-# Extracting Save Data
+#Extracting Save Data
 def bootSave(saveNum):
 	global x
 	global y
 	global z
-	input(saveNum)
-	input(type(saveNum))
+	global loriLvl
+	global laurenLvl
+	global chapter
 	if saveNum == 0:
 		input("we are in")
 		f = open("newGame.csv")
 		fReader = csv.reader(f)
 		content = next(fReader)
-		input(type(content))
-		input(content)
 		x = int(content[0])
 		y = int(content[1])
 		z = int(content[2])
 		chapter = int(content[3])
-		Lori.level = int(content[4])
-		Lauren.level = int(content[5])
-		input(Lori.level)
+		loriLvl = int(content[4])
+		laurenLvl = int(content[5])
 		f.close()
 	else:
 		input("fail")
 
+#Character Data
 def generateCharacters():
+	global loriLvl
+	global loriAtk
+	global loriDef
+	global loriActions
+	global loriCommands
+	global loriCosts
+	global loriHp
+	global laurenLvl
+	global laurenHp
+	global laurenAtk
+	global laurenDef
+	global laurenActions
+	global laurenCommands
+	global laurenCosts
+	stringCosts = []
 	garbage = 0
 	statLine = []
 	lvlCounter = 0
-	if Lori.level < 10:
+	if loriLvl < 10:
 		file = open("lori.csv")
 		fileReader = csv.reader(file)
-		Lori.skills = list(next(fileReader))
+		loriActions = next(fileReader)
+		garbage = next(fileReader)
+		loriCommands = next(fileReader)
 		garbage = next(fileReader)
 		stringCosts = next(fileReader)
 		for row in fileReader:
@@ -87,28 +114,31 @@ def generateCharacters():
 				input(type(statLine[0]))
 				try:
 					lvlCounter = int(statLine[0])
-					if lvlCounter == Lori.level:
+					if lvlCounter == loriLvl:
 						break
 					else:
 						pass
 				except ValueError:
 					pass
-		input(Lori.skills)
+		input(loriActions)
 		input(statLine)
+		input(loriCommands)
 		file.close()
-		Lori.health = int(statLine[2])
-		Lori.attack = int(statLine[3])
-		Lori.defense = int(statLine[4])
+		loriHp = int(statLine[2])
+		loriAtk = int(statLine[3])
+		loriDef = int(statLine[4])
 		for stuff in stringCosts:
 			garbage = int(stuff)
-			Lori.skillCosts.append(garbage)
-		input(Lori.skillCosts)
+			loriCosts.append(garbage)
+		input(loriCosts)
 	else:
 		input("almost")
-	if Lauren.level < 10 and Lauren.level > 0:
+	if laurenLvl < 10 and laurenLvl > 0:
 		file = open("lauren.csv")
 		fileReader = csv.reader(file)
-		Lauren.skills = next(fileReader)
+		laurenActions = next(fileReader)
+		garbage = next(fileReader)
+		laurenCommands = next(fileReader)
 		garbage = next(fileReader)
 		stringCosts = next(fileReader)
 		for row in fileReader:
@@ -121,30 +151,30 @@ def generateCharacters():
 				input(type(statLine[0]))
 				try:
 					lvlCounter = int(statLine[0])
-					if lvlCounter == Lauren.level:
+					if lvlCounter == laurenLvl:
 						break
 					else:
 						pass
 				except ValueError:
 					pass
-		input(Lauren.skills)
+		input(laurenActions)
 		input(statLine)
+		input(laurenCommands)
 		file.close()
-		Lauren.health = int(statLine[2])
-		Lauren.attack = int(statLine[3])
-		Lauren.defense = int(statLine[4])
+		laurenHp = int(statLine[2])
+		laurenAtk = int(statLine[3])
+		laurenDef = int(statLine[4])
 		for stuff in stringCosts:
 			garbage = int(stuff)
-			Lauren.skillCosts.append(garbage)
-		input(Lauren.skillCosts)
+			laurenCosts.append(garbage)
+		input(laurenCosts)
 	else:
 		input("almost")
 
-
-# Main Line Commands
+#Main Line Commands
 inputAndCheck("how would you like to boot? 0 New game or integer of save you are booting", [0])
 bootSave(currentAwnser)
-input(type(Lori.level))
+input(type(loriLvl))
 generateCharacters()
 os.system("cls")
 input("we made it!!!")

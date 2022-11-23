@@ -1,0 +1,17 @@
+Combat Padding,200,Def,1
+Whet Stone,1000,AtkPhy,10
+Crystal Ball,1500,AtkMag,10
+Breast Plate,1000,Def,5
+Full Plate,4000,Def,20
+Leather Armor,600,Def,3
+Half-plate,2000,Def,10
+Salve,1,hp,5
+Potion,3,hp,10
+Soothing Salve,5,hp,10
+Soothing Potion,15,hp,20
+Healing Salve,15,hp,15
+Healing Potion,45,hp,30
+Restoring Salve,25,hp,20
+Restoring Potion,75,hp,60
+Divine Salve,40,hp,25
+Divine Potion,120,hp,75
