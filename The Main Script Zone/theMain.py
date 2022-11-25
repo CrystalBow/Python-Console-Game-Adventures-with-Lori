@@ -2,6 +2,7 @@
 # imports
 import csv
 from PlayableCharacter import PlayableCharacter
+from Monster import Monster
 import os
 
 # Variables
@@ -12,6 +13,10 @@ z = 0
 chapter = 0
 Lori = PlayableCharacter("Lori")
 Lauren = PlayableCharacter("Lauren")
+Marcus = PlayableCharacter("Marcus")
+Julius = PlayableCharacter("Julius")
+#Testing Purposes
+ThatMonster = Monster(displayName="Test Boy", attack=10, defense=10, health=10, experince=10)
 
 # Functions
 def inputAndCheck(question, validAwnsers): # validAwnsers must be a list
@@ -45,11 +50,12 @@ def bootSave(saveNum):
 	global x
 	global y
 	global z
+	global chapter
 	input(saveNum)
 	input(type(saveNum))
 	if saveNum == 0:
 		input("we are in")
-		f = open("../The OG Scripts and recources (will be deleted)/newGame.csv")
+		f = open("newGame.csv")
 		fReader = csv.reader(f)
 		content = next(fReader)
 		input(type(content))
@@ -60,6 +66,8 @@ def bootSave(saveNum):
 		chapter = int(content[3])
 		Lori.level = int(content[4])
 		Lauren.level = int(content[5])
+		Marcus.level = int(content[6])
+		Julius.level = int(content[7])
 		input(Lori.level)
 		f.close()
 	else:
@@ -70,7 +78,7 @@ def generateCharacters():
 	statLine = []
 	lvlCounter = 0
 	if Lori.level < 10:
-		file = open("../The OG Scripts and recources (will be deleted)/lori.csv")
+		file = open("lori.csv")
 		fileReader = csv.reader(file)
 		Lori.skills = list(next(fileReader))
 		garbage = next(fileReader)
@@ -104,7 +112,7 @@ def generateCharacters():
 	else:
 		input("almost")
 	if Lauren.level < 10 and Lauren.level > 0:
-		file = open("../The OG Scripts and recources (will be deleted)/lauren.csv")
+		file = open("lauren.csv")
 		fileReader = csv.reader(file)
 		Lauren.skills = next(fileReader)
 		garbage = next(fileReader)
@@ -137,6 +145,86 @@ def generateCharacters():
 		input(Lauren.skillCosts)
 	else:
 		input("almost")
+	if Julius.level < 10 and Julius.level > 0:
+		file = open("julius.csv")
+		fileReader = csv.reader(file)
+		Julius.skills = next(fileReader)
+		garbage = next(fileReader)
+		stringCosts = next(fileReader)
+		for row in fileReader:
+			input("we made it")
+			if row == []:
+				pass
+			else:
+				statLine = row
+				input(statLine[0])
+				input(type(statLine[0]))
+				try:
+					lvlCounter = int(statLine[0])
+					if lvlCounter == Julius.level:
+						break
+					else:
+						pass
+				except ValueError:
+					pass
+		input(Julius.skills)
+		input(statLine)
+		file.close()
+		Julius.health = int(statLine[2])
+		Julius.attack = int(statLine[3])
+		Julius.defense = int(statLine[4])
+		for stuff in stringCosts:
+			garbage = int(stuff)
+			Julius.skillCosts.append(garbage)
+		input(Julius.skillCosts)
+	else:
+		input("almost")
+	if Marcus.level < 10 and Marcus.level > 0:
+		file = open("marcus.csv")
+		fileReader = csv.reader(file)
+		Marcus.skills = next(fileReader)
+		garbage = next(fileReader)
+		stringCosts = next(fileReader)
+		for row in fileReader:
+			input("we made it")
+			if row == []:
+				pass
+			else:
+				statLine = row
+				input(statLine[0])
+				input(type(statLine[0]))
+				try:
+					lvlCounter = int(statLine[0])
+					if lvlCounter == Marcus.level:
+						break
+					else:
+						pass
+				except ValueError:
+					pass
+		input(Marcus.skills)
+		input(statLine)
+		file.close()
+		Marcus.health = int(statLine[2])
+		Marcus.attack = int(statLine[3])
+		Marcus.defense = int(statLine[4])
+		for stuff in stringCosts:
+			garbage = int(stuff)
+			Marcus.skillCosts.append(garbage)
+		input(Marcus.skillCosts)
+	else:
+		input("almost")
+
+def explorer():
+	global x
+	global y
+	global z
+	global chapter
+	#Code goes here
+
+	#defualt iterations. temporary.
+	x += 1
+	y += 1
+	chapter += 1
 
 
 # Main Line Commands
@@ -146,4 +234,18 @@ input(type(Lori.level))
 generateCharacters()
 os.system("cls")
 input("we made it!!!")
-
+if chapter == 0:
+	input("Opening")
+	chapter += 1
+	Lauren.level += 1
+generateCharacters()
+while chapter < 24:
+	# the main game
+	explorer()
+input("credits")
+chapter += 1
+while chapter < 27:
+	# the post game
+	explorer()
+input("credits and close")
+input("Extra Data:" + str(x) + " " + str(y) + " " + str(z))

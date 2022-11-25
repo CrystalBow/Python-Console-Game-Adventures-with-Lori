@@ -5,6 +5,7 @@ class Character(object):
         self.attack = Attack
         self.defense = Defense
         self.health = Health
+        self.currentHealth = Health
         self.experience = Exp
     def deathCheck(self):
         if self.health <= 0:

@@ -182,7 +182,7 @@ f.close()
 os.system("type nul > newGame.csv")
 f = open("newGame.csv", "w")
 fwrite = csv.writer(f)
-newGame = [750, 750, 0, 0, 1, 0, 0, 0]
+newGame = [750, 250, 0, 0, 1, 0, 0, 0]
 fwrite.writerow(newGame)
 f.close()
 
