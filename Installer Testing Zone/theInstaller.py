@@ -33,10 +33,10 @@ descriptions = [
      "The fields roll up and down. They shine a bright green.",
      "A fort! oh wait, it's an abandoned and only half standing."],
     ["The land is scorched here. you can see caves in the ground that probably lead to dragon dens"],
-    ["Flat lands and grass theirs a forest not far off.", "Trees of the forest, with mushrooms and bunnies",
+    ["Flat lands and grass. there is a forest not far off.", "Trees of the forest, with mushrooms and bunnies",
      "A deer saw you and ran away. The party is now alone in the forest.",
      "There's a grazing herd of cows nearby, best leave them alone",
-     "The flat green plains let you see all around you're walking passed what used to be a campfire"],
+     "The flat green plains let you see all around. you're walking passed what used to be a campfire"],
     ["Lots of farms! the population must be massive",
      "Was that a samurai bunny? Anyway, your passing through an abandoned training ground",
      "A duel took place here. you can tell because there's a single body with a sword wound in it",
@@ -355,11 +355,13 @@ for location in regionLocation:
 f.close()
 
 # regions.csv resource
+import os
+import csv
 os.system("type nul > regions.csv")
 f = open("regions.csv", "w")
 fwrite = csv.writer(f)
 regions = [[0, "Larmen Plains", 0, 200, 0, 100, 0, 0], [1, "the Rise", 101, 200, 101, 199, 0, 20],
-           [2, "the Desert South", 0, 100, 101, 423, 0, 0], [3, "the Desrt North", 0, 749, 424, 500, 0, 0],
+           [2, "the Desert South", 0, 100, 101, 423, 0, 0], [3, "the Desert North", 0, 749, 424, 500, 0, 0],
            [4, "Ruined Plateau", 101, 749, 200, 423, 20, 20], [5, "the Death Lands", 201, 875, 0, 199, 0, 4],
            [6, "Goblin Montain", 876, 1000, 0, 50, 2, 20], [7, "Drame Kingdom", 876, 1000, 51, 239, 0, 4],
            [8, "Mini Plateau", 750, 875, 200, 249, 20, 20], [9, "Kindom of Javi", 750, 1000, 250, 350, 0, 0],

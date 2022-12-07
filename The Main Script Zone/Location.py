@@ -7,4 +7,4 @@ class Location(object):
         self.x = x
         self.y = y
         self.z = z
-        self.storyFlag
+        self.storyFlag = False
