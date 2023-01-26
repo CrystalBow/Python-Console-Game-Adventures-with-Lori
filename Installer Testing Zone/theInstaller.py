@@ -4,7 +4,7 @@ import csv
 
 # descriptions.csv
 os.system("type nul > descriptions.csv")
-f = open("descriptions.csv", "w")
+f = open("../The Main Script Zone/descriptions.csv", "w")
 fwrite = csv.writer(f)
 descriptions = [
     ["Tall grass is all around you, it sways with the wind...",
@@ -48,7 +48,7 @@ f.close()
 
 # encounters.csv
 os.system("type nul > encounters.csv")
-f = open("encounters.csv", "w")
+f = open("../The Main Script Zone/encounters.csv", "w")
 fwrite = csv.writer(f)
 battles = [
     # encounter min, monster name. Index is equal to region ID
@@ -70,7 +70,7 @@ f.close()
 
 # items.csv
 os.system("type nul > items.csv")
-f = open("items.csv", "w")
+f = open("../The Main Script Zone/items.csv", "w")
 fwrite = csv.writer(f)
 items = [
     # Name, cost, effect, effectValue
@@ -98,7 +98,7 @@ f.close()
 
 # pets.csv
 os.system("type nul > pets.csv")
-f = open("pets.csv", "w")
+f = open("../The Main Script Zone/pets.csv", "w")
 fwrite = csv.writer(f)
 buddies = [
     [9, "Dire Cat", "Wolf"],
@@ -117,7 +117,7 @@ f.close()
 
 # monsterStats.csv
 os.system("type nul > monsterStats.csv")
-f = open("monsterStats.csv", "w")
+f = open("../The Main Script Zone/monsterStats.csv", "w")
 fwrite = csv.writer(f)
 baddies = [
     # Name, Hp, Atk, Def, pets, friends, weapon, exp, pet?
@@ -180,21 +180,21 @@ f.close()
 
 # newGame.csv recource
 os.system("type nul > newGame.csv")
-f = open("newGame.csv", "w")
+f = open("../The Main Script Zone/newGame.csv", "w")
 fwrite = csv.writer(f)
-newGame = [750, 250, 0, 0, 1, 0, 0, 0]
+newGame = [150, 50, 0, 0, 1, 0, 0, 0]
 fwrite.writerow(newGame)
 f.close()
 
 # larmenPlains.csv
 os.system("type nul > larmenPlains.csv")
-f = open("larmenPlains.csv", "w")
+f = open("../The Main Script Zone/larmenPlains.csv", "w")
 fwrite = csv.writer(f)
 regionLocation = [
     # Name, x, y, z, townStatus
-    ["Drame Settlement", 10, 10, 0, 1],
-    ["Ruined City", 100, 50, 0, 0],
-    ["Gobbi Settlement", 150, 75, 1]
+    ["Drame Settlement", 2, 2, 0, 1],
+    ["Ruined City", 20, 10, 0, 0],
+    ["Gobbi Settlement", 30, 15, 1]
 ]
 for location in regionLocation:
     fwrite.writerow(location)
@@ -202,11 +202,11 @@ f.close()
 
 # desert3.csv
 os.system("type nul > desert3.csv")
-f = open("desert3.csv", "w")
+f = open("../The Main Script Zone/desert3.csv", "w")
 fwrite = csv.writer(f)
 regionLocation = [
     # Name, x, y, z, townStatus
-    ["Forgotten Oasis", 50, 475, 0, 1]
+    ["Forgotten Oasis", 10, 95, 0, 1]
 ]
 for location in regionLocation:
     fwrite.writerow(location)
@@ -214,14 +214,14 @@ f.close()
 
 # theDreathLands.csv
 os.system("type nul > theDeathLands.csv")
-f = open("theDeathLands.csv", "w")
+f = open("../The Main Script Zone/theDeathLands.csv", "w")
 fwrite = csv.writer(f)
 regionLocation = [
     # Name, x, y, z, townStatus
-    ["Larmen Oasis", 211, 20, 0, 1],
-    ["Ohio Oasis", 501, 100, 0, 1],
-    ["Drame Oasis", 850, 170, 0, 1],
-    ["Gobbi Oasis", 840, 20, 0, 1]
+    ["Larmen Oasis", 43, 4, 0, 1],
+    ["Ohio Oasis", 101, 20, 0, 1],
+    ["Drame Oasis", 170, 34, 0, 1],
+    ["Gobbi Oasis", 168, 4, 0, 1]
 ]
 for location in regionLocation:
     fwrite.writerow(location)
@@ -229,13 +229,13 @@ f.close()
 
 # gobbiMontains.csv
 os.system("type nul > gobbiMontains.csv")
-f = open("gobbiMontains.csv", "w")
+f = open("../The Main Script Zone/gobbiMontains.csv", "w")
 fwrite = csv.writer(f)
 regionLocation = [
     # Name, x, y, z, townStatus
-    ["Drame Anit-Gob Fort", 930, 45, 0, 1],
-    ["Gob Trade Outpost", 880, 15, 0, 1],
-    ["Gob King's Lair", 150, 75, 15, 0]
+    ["Drame Anit-Gob Fort", 186, 9, 0, 1],
+    ["Gob Trade Outpost", 176, 3, 0, 1],
+    ["Gob King's Lair", 30, 15, 15, 0]
 ]
 for location in regionLocation:
     fwrite.writerow(location)
@@ -243,21 +243,21 @@ f.close()
 
 # drameKingdom.csv
 os.system("type nul > drameKingdom.csv")
-f = open("drameKingdom.csv", "w")
+f = open("../The Main Script Zone/drameKingdom.csv", "w")
 fwrite = csv.writer(f)
 regionLocation = [
     # Name, x, y, z, townStatus
-    ["Kline Town", 905, 100, 0, 1],
-    ["Alex Town", 944, 125, 0, 1],
-    ["Remiy Temple", 100, 195, 0, 0],
-    ["Marcelo Village", 905, 210, 0, 1],
-    ["Barnesha Town", 940, 200, 0, 1],
-    ["John Village", 950, 150, 0, 1],
-    ["Melanie Village", 950, 120, 0, 1],
-    ["Fort Kyle", 950, 75, 0, 1],
-    ["Javi/Drame Outpost", 960, 230, 0, 1],
-    ["Josh Town", 975, 210, 0, 1],
-    ["Drame Castle", 950, 150, 0, 1]
+    ["Kline Town", 185, 20, 0, 1],
+    ["Alex Town", 188, 25, 0, 1],
+    ["Remiy Temple", 176, 39, 0, 0],
+    ["Marcelo Village", 181, 42, 0, 1],
+    ["Barnesha Town", 188, 40, 0, 1],
+    ["John Village", 190, 30, 0, 1],
+    ["Melanie Village", 190, 24, 0, 1],
+    ["Fort Kyle", 190, 15, 0, 1],
+    ["Javi/Drame Outpost", 192, 46, 0, 1],
+    ["Josh Town", 195, 42, 0, 1],
+    ["Drame Castle", 190, 30, 0, 1]
 ]
 for location in regionLocation:
     fwrite.writerow(location)
@@ -265,15 +265,15 @@ f.close()
 
 # ruinedPlateau.csv
 os.system("type nul > ruinedPlateau.csv")
-f = open("ruinedPlateau.csv", "w")
+f = open("../The Main Script Zone/ruinedPlateau.csv", "w")
 fwrite = csv.writer(f)
 regionLocation = [
     # Name, x, y, z, townStatus
-    ["West Seal", 101, 223, 20, 0],
-    ["South Seal", 648, 200, 20, 0],
-    ["East Seal", 749, 223, 20, 0],
-    ["North Seal", 648, 423, 20, 0],
-    ["Castle of Ruin", 648, 223, 0, 0]
+    ["West Seal", 110, 46, 20, 0],
+    ["South Seal", 129, 40, 20, 0],
+    ["East Seal", 149, 46, 20, 0],
+    ["North Seal", 129, 84, 20, 0],
+    ["Castle of Ruin", 129, 46, 0, 0]
 ]
 for location in regionLocation:
     fwrite.writerow(location)
@@ -281,11 +281,11 @@ f.close()
 
 # MiniPlatPen.csv
 os.system("type nul > miniPlatPen.csv")
-f = open("miniPlatPen.csv", "w")
+f = open("../The Main Script Zone/miniPlatPen.csv", "w")
 fwrite = csv.writer(f)
 regionLocation = [
     # Name, x, y, z, townStatus
-    ["Elder Cave", 812, 224, 20, 0]
+    ["Elder Cave", 162, 44, 20, 0]
 ]
 for location in regionLocation:
     fwrite.writerow(location)
@@ -293,19 +293,19 @@ f.close()
 
 # kingdomOfJavi.csv
 os.system("type nul > kingdomOfJavi.csv")
-f = open("kingdomOfJavi.csv", "w")
+f = open("../The Main Script Zone/kingdomOfJavi.csv", "w")
 fwrite = csv.writer(f)
 regionLocation = [
     # Name, x, y, z, townStatus
-    ["Church of Light", 760, 300, 0, 1],
-    ["Light Way Village", 800, 312, 0, 1],
-    ["New Nevran City", 790, 270, 0, 1],
-    ["Javi Outpost North West", 800, 325, 0, 1],
-    ["Bronze Village", 860, 275, 0, 1],
-    ["Javi Outpost South", 913, 270, 0, 1],
-    ["Javi City", 913, 312, 0, 1],
-    ["Sword's Glint", 870, 325, 0, 0],
-    ["Javi/Igachi Trade Post", 913, 330, 0, 1]
+    ["Church of Light", 152, 60, 0, 1],
+    ["Light Way Village", 160, 62, 0, 1],
+    ["New Nevran City", 158, 54, 0, 1],
+    ["Javi Outpost North West", 160, 65, 0, 1],
+    ["Bronze Village", 172, 55, 0, 1],
+    ["Javi Outpost South", 182, 54, 0, 1],
+    ["Javi City", 182, 62, 0, 1],
+    ["Sword's Glint", 174, 65, 0, 0],
+    ["Javi/Igachi Trade Post", 182, 66, 0, 1]
 ]
 for location in regionLocation:
     fwrite.writerow(location)
@@ -313,59 +313,36 @@ f.close()
 
 # igachiPlain.csv
 os.system("type nul > igachiPlain.csv")
-f = open("igachiPlain.csv", "w")
+f = open("../The Main Script Zone/igachiPlain.csv", "w")
 fwrite = csv.writer(f)
 regionLocation = [
     # Name, x, y, z, townStatus
-    ["Igachi High Fort", 775, 475, 0, 1],
-    ["Watachi Village", 780, 385, 0, 1],
-    ["Koi Town", 800, 410, 0, 1],
-    ["Katana Village", 840, 400, 0, 1],
-    ["Warrior City", 860, 425, 0, 1],
-    ["Igachi Central Fort", 850, 425, 0, 1],
-    ["Igachi Low Watch Tower", 800, 375, 0, 1],
-    ["Igachi Low Fort", 900, 375, 0, 1],
-    ["Igachi Palace", 950, 483, 0, 1],
-    ["Sakara Village", 1000, 413, 0, 1]
+    ["Igachi High Fort", 155, 95, 0, 1],
+    ["Watachi Village", 15, 77, 0, 1],
+    ["Koi Town", 160, 82, 0, 1],
+    ["Katana Village", 168, 80, 0, 1],
+    ["Warrior City", 172, 85, 0, 1],
+    ["Igachi Central Fort", 170, 85, 0, 1],
+    ["Igachi Low Watch Tower", 160, 75, 0, 1],
+    ["Igachi Low Fort", 180, 75, 0, 1],
+    ["Igachi Palace", 190, 96, 0, 1],
+    ["Sakara Village", 200, 82, 0, 1]
 ]
 for location in regionLocation:
     fwrite.writerow(location)
 f.close()
 
-# drameKingdom.csv
-os.system("type nul > drameKingdom.csv")
-f = open("drameKingdom.csv", "w")
-fwrite = csv.writer(f)
-regionLocation = [
-    # Name, x, y, z, townStatus
-    ["Kline Town", 905, 100, 0, 1],
-    ["Alex Town", 944, 125, 0, 1],
-    ["Remiy Temple", 100, 195, 0, 0],
-    ["Marcelo Village", 905, 210, 0, 1],
-    ["Barnesha Town", 940, 200, 0, 1],
-    ["John Village", 950, 150, 0, 1],
-    ["Melanie Village", 950, 120, 0, 1],
-    ["Fort Kyle", 950, 75, 0, 1],
-    ["Javi/Drame Outpost", 960, 230, 0, 1],
-    ["Josh Town", 975, 210, 0, 1],
-    ["Drame Castle", 950, 150, 0, 1]
-]
-for location in regionLocation:
-    fwrite.writerow(location)
-f.close()
 
-# regions.csv resource
-import os
-import csv
+
 os.system("type nul > regions.csv")
-f = open("regions.csv", "w")
+f = open("../The Main Script Zone/regions.csv", "w")
 fwrite = csv.writer(f)
-regions = [[0, "Larmen Plains", 0, 200, 0, 100, 0, 0], [1, "the Rise", 101, 200, 101, 199, 0, 20],
-           [2, "the Desert South", 0, 100, 101, 423, 0, 0], [3, "the Desert North", 0, 749, 424, 500, 0, 0],
-           [4, "Ruined Plateau", 101, 749, 200, 423, 20, 20], [5, "the Death Lands", 201, 875, 0, 199, 0, 4],
-           [6, "Goblin Montain", 876, 1000, 0, 50, 2, 20], [7, "Drame Kingdom", 876, 1000, 51, 239, 0, 4],
-           [8, "Mini Plateau", 750, 875, 200, 249, 20, 20], [9, "Kindom of Javi", 750, 1000, 250, 350, 0, 0],
-           [10, "Igachi Plain", 750, 1000, 351, 500, 0, 0]]
+regions = [[0, "Larmen Plains", 0, 40, 0, 20, 0, 0], [1, "the Rise", 21, 40, 21, 39, 0, 20],
+           [2, "the Desert South", 0, 20, 21, 84, 0, 0], [3, "the Desert North", 0, 149, 85, 100, 0, 0],
+           [4, "Ruined Plateau", 21, 149, 40, 84, 20, 20], [5, "the Death Lands", 41, 175, 0, 39, 0, 4],
+           [6, "Goblin Montain", 176, 200, 0, 10, 2, 20], [7, "Drame Kingdom", 176, 200, 11, 47, 0, 4],
+           [8, "Mini Plateau", 150, 175, 40, 49, 20, 20], [9, "Kindom of Javi", 150, 200, 50, 70, 0, 0],
+           [10, "Igachi Plain", 150, 200, 71, 100, 0, 0]]
 for region in regions:
     fwrite.writerow(region)
 f.close()
@@ -373,7 +350,7 @@ f.close()
 # character csvs
 # Lori
 os.system("type nul > lori.csv")
-f = open("lori.csv", "w")
+f = open("../The Main Script Zone/lori.csv", "w")
 fwrite = csv.writer(f)
 loriAblities = ["Stamina", "Slash", "Sweeping Slash", "Second Wind", "Guard Up"]
 loriCosts = [0, 0, 1, 5, 2]
@@ -395,7 +372,7 @@ f.close()
 
 # Lauren
 os.system("type nul > lauren.csv")
-f = open("lauren.csv", "w")
+f = open("../The Main Script Zone/lauren.csv", "w")
 fwrite = csv.writer(f)
 laurenAblities = ["Light Arrows", "Smiting Arrow", "Restoring Arrow", "Focus Light", "Quick Hands"]
 laurenCosts = [0, 1, 1, 1, 0]
@@ -406,8 +383,8 @@ laurenLevels = [[1, 10, 7, 2, 5],
                 [5, 14, 10, 3, 10],
                 [6, 15, 11, 3, 11],
                 [7, 15, 12, 4, 12],
-                [8, 15, 13, 5, 10],
-                [9, 15, 14, 6, 10],
+                [8, 15, 13, 5, 13],
+                [9, 15, 14, 6, 14],
                 [10, 1, 2, 1, 0]]
 fwrite.writerow(laurenAblities)
 fwrite.writerow(laurenCosts)
@@ -417,10 +394,10 @@ f.close()
 
 # Marcus
 os.system("type nul > marcus.csv")
-f = open("marcus.csv", "w")
+f = open("../The Main Script Zone/marcus.csv", "w")
 fwrite = csv.writer(f)
-marcusAblities = ["Stamina", "Axe", "Taunting Cry", "Full Guard", "Rallying Cry"]
-marcusCosts = [0, 0, 1, 5, 3]
+marcusAblities = ["Stamina", "Axe", "Taunting Cry", "Full Guard", "Rally"]
+marcusCosts = [0, 0, 1, 5, 4]
 marcusLevels = [[1, 10, 3, 7, 1],
                 [2, 12, 3, 7, 2],
                 [3, 14, 3, 7, 3],
@@ -439,9 +416,9 @@ f.close()
 
 # Julius
 os.system("type nul > julius.csv")
-f = open("julius.csv", "w")
+f = open("../The Main Script Zone/julius.csv", "w")
 fwrite = csv.writer(f)
-juliusAblities = ["Mana", "Dagger Poke", "Lightning Bolt", "Close Wound", "FireBall"]
+juliusAblities = ["Mana", "Dagger Poke", "Lightning Bolt", "Close Wound", "Fire Ball"]
 juliusCosts = [0, 0, 2, 6, 8]
 juliusLevels = [[1, 7, 7, 3, 3],
                 [2, 7, 9, 3, 4],

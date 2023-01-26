@@ -8,6 +8,7 @@ import os
 from gameMenu import GameMenu
 from Combat import Combat
 from Location import Location
+from ImportantFunctions import inputAndCheck
 # Variables
 x = 0
 y = 0
@@ -26,30 +27,6 @@ gold = 0
 ThatMonster = Monster(displayName="Test Boy", attack=10, defense=5, health=1, experince=10)
 
 # Functions
-def inputAndCheck(question, validAwnsers): # validAwnsers must be a list
-	global currentAwnser
-	awnserString = input(question)
-	validaty = False
-	convertedAwnser = 0
-	awnserFlag = False
-	try:
-		int(awnserString)
-		validaty = True
-	except ValueError:
-		pass
-	if validaty == False:
-		return inputAndCheck(question, validAwnsers)
-	else:
-		convertedAwnser = int(awnserString)
-		for awnser in validAwnsers:
-			if convertedAwnser == awnser:
-				awnserFlag = True
-			else:
-				continue
-		if awnserFlag == False:
-			return inputAndCheck(question, validAwnsers)
-		else:
-			return convertedAwnser
 # Extracting Save Data
 def bootSave(saveNum):
 	global x
@@ -204,9 +181,6 @@ def save(characters, x, y, z, ch, gp):
 		exit()
 
 
-
-
-
 def rest(charecters,  local):
 	updatedCharacters = []
 	if local:
@@ -216,6 +190,9 @@ def rest(charecters,  local):
 			updatedCharacters.append(wifu)
 	else:
 		for wifu in charecters:
+			if wifu.level == 0:
+				updatedCharacters.append(wifu)
+				continue
 			luck = int(random.random() * 10)
 			wifu.currentHealth = wifu.currentHealth + luck
 			wifu.currentEnergy = wifu.currentEnergy + luck
@@ -251,7 +228,7 @@ def encounterCheck(RegionID):
 					up += 2
 					down += 2
 			except IndexError:
-				return [True, len(PossibleFights[RegionID]) - 1]
+				return [True, PossibleFights[RegionID][len(PossibleFights[RegionID]) - 1]]
 	return [False]
 def runCombat(intialBadie, wifus, location):
 	global ThatMonster
@@ -272,13 +249,16 @@ def runCombat(intialBadie, wifus, location):
 		for enemy in enemyCatalog:
 			if badie == enemy[0]:
 				theBattle.intiativeRoll(Monster(attack= int(enemy[2]), health= int(enemy[1]), defense= int(enemy[3]), displayName=badie, experince= int(enemy[7]),petRate= int(enemy[4]), buddyRate= int(enemy[5]), weapon= enemy[6]))
-			theBattle.intiativeRoll(ThatMonster)
+	theBattle.foePrep()
+	theBattle.combatantOrganizer()
 	while theBattle.continueStatus:
 		for fighter in theBattle.order:
 			theBattle.turn(theBattle.listing[fighter[0]])
 			theBattle.listing[fighter[0]].deathCheck()
-		if len(theBattle.listing) > 0: #needs to be changed once combat is developed
-			theBattle.continueStatus = False
+			theBattle.continueStatus = theBattle.combatEndCheck()
+			if not theBattle.continueStatus:
+				break
+			os.system("cls")
 	checker = 0
 	for fighter in theBattle.listing:
 		if isinstance(theBattle.listing[fighter], PlayableCharacter):
@@ -287,6 +267,7 @@ def runCombat(intialBadie, wifus, location):
 	if checker == 0:
 		input("GAME OVER")
 		exit()
+	del theBattle
 	return postBattleWifus
 
 
@@ -471,6 +452,9 @@ def generateCharacters():
 		file = open("lori.csv")
 		fileReader = csv.reader(file)
 		Lori.skills = list(next(fileReader))
+		Lori.skillCosts = []
+		Lori.energyName = Lori.skills[0]
+		Lori.skills.pop(0)
 		garbage = next(fileReader)
 		stringCosts = next(fileReader)
 		for row in fileReader:
@@ -495,16 +479,21 @@ def generateCharacters():
 		for stuff in stringCosts:
 			garbage = int(stuff)
 			Lori.skillCosts.append(garbage)
+		Lori.skillCosts.pop(0)
+		print(Lori.skillCosts)
 	else:
 		input("almost")
 	if Lauren.level < 10 and Lauren.level > 0:
 		file = open("lauren.csv")
 		fileReader = csv.reader(file)
 		Lauren.skills = next(fileReader)
+		Lauren.energyName = Lauren.skills[0]
+		Lauren.skillCosts = []
+		Lauren.skills.pop(0)
 		garbage = next(fileReader)
 		stringCosts = next(fileReader)
 		for row in fileReader:
-			input("we made it")
+			print("we made it")
 			if row == []:
 				pass
 			else:
@@ -526,23 +515,27 @@ def generateCharacters():
 		for stuff in stringCosts:
 			garbage = int(stuff)
 			Lauren.skillCosts.append(garbage)
-		input(Lauren.skillCosts)
+		Lauren.skillCosts.pop(0)
+		print(Lauren.skillCosts)
 	else:
-		input("almost")
+		print("almost")
 	if Julius.level < 10 and Julius.level > 0:
 		file = open("julius.csv")
 		fileReader = csv.reader(file)
 		Julius.skills = next(fileReader)
+		Julius.skillCosts = []
+		Julius.energyName = Julius.skills[0]
+		Julius.skills.pop(0)
 		garbage = next(fileReader)
 		stringCosts = next(fileReader)
 		for row in fileReader:
-			input("we made it")
+			print("we made it")
 			if row == []:
 				pass
 			else:
 				statLine = row
-				input(statLine[0])
-				input(type(statLine[0]))
+				print(statLine[0])
+				print(type(statLine[0]))
 				try:
 					lvlCounter = int(statLine[0])
 					if lvlCounter == Julius.level:
@@ -551,8 +544,7 @@ def generateCharacters():
 						pass
 				except ValueError:
 					pass
-		input(Julius.skills)
-		input(statLine)
+		print(Julius.skills)
 		file.close()
 		Julius.health = int(statLine[1])
 		Julius.attack = int(statLine[2])
@@ -561,23 +553,27 @@ def generateCharacters():
 		for stuff in stringCosts:
 			garbage = int(stuff)
 			Julius.skillCosts.append(garbage)
-		input(Julius.skillCosts)
+		Julius.skillCosts.pop(0)
+		print(Julius.skillCosts)
 	else:
-		input("almost")
+		print("almost")
 	if Marcus.level < 10 and Marcus.level > 0:
 		file = open("marcus.csv")
 		fileReader = csv.reader(file)
 		Marcus.skills = next(fileReader)
+		Marcus.skillCosts = []
+		Marcus.energyName = Marcus.skills[0]
+		Marcus.skills.pop(0)
 		garbage = next(fileReader)
 		stringCosts = next(fileReader)
 		for row in fileReader:
-			input("we made it")
+			print("we made it")
 			if row == []:
 				pass
 			else:
 				statLine = row
-				input(statLine[0])
-				input(type(statLine[0]))
+				print(statLine[0])
+				print(type(statLine[0]))
 				try:
 					lvlCounter = int(statLine[0])
 					if lvlCounter == Marcus.level:
@@ -586,8 +582,8 @@ def generateCharacters():
 						pass
 				except ValueError:
 					pass
-		input(Marcus.skills)
-		input(statLine)
+		print(Marcus.skills)
+		print(statLine)
 		file.close()
 		Marcus.health = int(statLine[1])
 		Marcus.attack = int(statLine[2])
@@ -596,9 +592,10 @@ def generateCharacters():
 		for stuff in stringCosts:
 			garbage = int(stuff)
 			Marcus.skillCosts.append(garbage)
-		input(Marcus.skillCosts)
+		Marcus.skillCosts.pop(0)
+		print(Marcus.skillCosts)
 	else:
-		input("almost")
+		print("almost")
 
 def explorer():
 	global x
@@ -665,7 +662,16 @@ def explorer():
 	if playerChoice == 3:
 		x -= 1
 	if playerChoice == 4:
-		menu.displayGameMenu()
+		os.system("cls")
+		listing = menu.displayGameMenu()
+		Checker = inputAndCheck("Inspect: ", listing)
+		os.system("cls")
+		if Checker < len(menu.PClist):
+			itemAwsner = menu.displayPC(menu.PClist[Checker])
+			itemAwsner = inputAndCheck("Use: ", itemAwsner)
+			if itemAwsner < len(characters[Checker].inventory):
+				input("item has effect!")
+
 	if playerChoice == 5:
 		characters = rest(characters, local)
 		Lauren = characters[1]

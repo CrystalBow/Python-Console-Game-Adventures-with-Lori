@@ -1,3 +1,4 @@
+
 class Character(object):
 
     def __init__(self, Attack = None, Defense = None, Health = 1, Exp = None, displayName = None):
@@ -8,10 +9,10 @@ class Character(object):
         self.currentHealth = Health
         self.experience = Exp
     def deathCheck(self):
-        if self.health <= 0:
-            del self
+        if self.currentHealth <= 0:
+            return True
         else:
-            pass
+            return False
 
 
 
