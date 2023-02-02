@@ -4,7 +4,7 @@ import csv
 
 # descriptions.csv
 os.system("type nul > descriptions.csv")
-f = open("../The Main Script Zone/descriptions.csv", "w")
+f = open("descriptions.csv", "w")
 fwrite = csv.writer(f)
 descriptions = [
     ["Tall grass is all around you, it sways with the wind...",
@@ -48,7 +48,7 @@ f.close()
 
 # encounters.csv
 os.system("type nul > encounters.csv")
-f = open("../The Main Script Zone/encounters.csv", "w")
+f = open("encounters.csv", "w")
 fwrite = csv.writer(f)
 battles = [
     # encounter min, monster name. Index is equal to region ID
@@ -70,7 +70,7 @@ f.close()
 
 # items.csv
 os.system("type nul > items.csv")
-f = open("../The Main Script Zone/items.csv", "w")
+f = open("items.csv", "w")
 fwrite = csv.writer(f)
 items = [
     # Name, cost, effect, effectValue
@@ -98,7 +98,7 @@ f.close()
 
 # pets.csv
 os.system("type nul > pets.csv")
-f = open("../The Main Script Zone/pets.csv", "w")
+f = open("pets.csv", "w")
 fwrite = csv.writer(f)
 buddies = [
     [9, "Dire Cat", "Wolf"],
@@ -117,7 +117,7 @@ f.close()
 
 # monsterStats.csv
 os.system("type nul > monsterStats.csv")
-f = open("../The Main Script Zone/monsterStats.csv", "w")
+f = open("monsterStats.csv", "w")
 fwrite = csv.writer(f)
 baddies = [
     # Name, Hp, Atk, Def, pets, friends, weapon, exp, pet?
@@ -180,7 +180,7 @@ f.close()
 
 # newGame.csv recource
 os.system("type nul > newGame.csv")
-f = open("../The Main Script Zone/newGame.csv", "w")
+f = open("newGame.csv", "w")
 fwrite = csv.writer(f)
 newGame = [150, 50, 0, 0, 1, 0, 0, 0]
 fwrite.writerow(newGame)
@@ -188,7 +188,7 @@ f.close()
 
 # larmenPlains.csv
 os.system("type nul > larmenPlains.csv")
-f = open("../The Main Script Zone/larmenPlains.csv", "w")
+f = open("larmenPlains.csv", "w")
 fwrite = csv.writer(f)
 regionLocation = [
     # Name, x, y, z, townStatus
@@ -202,7 +202,7 @@ f.close()
 
 # desert3.csv
 os.system("type nul > desert3.csv")
-f = open("../The Main Script Zone/desert3.csv", "w")
+f = open("desert3.csv", "w")
 fwrite = csv.writer(f)
 regionLocation = [
     # Name, x, y, z, townStatus
@@ -214,7 +214,7 @@ f.close()
 
 # theDreathLands.csv
 os.system("type nul > theDeathLands.csv")
-f = open("../The Main Script Zone/theDeathLands.csv", "w")
+f = open("theDeathLands.csv", "w")
 fwrite = csv.writer(f)
 regionLocation = [
     # Name, x, y, z, townStatus
@@ -229,7 +229,7 @@ f.close()
 
 # gobbiMontains.csv
 os.system("type nul > gobbiMontains.csv")
-f = open("../The Main Script Zone/gobbiMontains.csv", "w")
+f = open("gobbiMontains.csv", "w")
 fwrite = csv.writer(f)
 regionLocation = [
     # Name, x, y, z, townStatus
@@ -243,7 +243,7 @@ f.close()
 
 # drameKingdom.csv
 os.system("type nul > drameKingdom.csv")
-f = open("../The Main Script Zone/drameKingdom.csv", "w")
+f = open("drameKingdom.csv", "w")
 fwrite = csv.writer(f)
 regionLocation = [
     # Name, x, y, z, townStatus
@@ -265,7 +265,7 @@ f.close()
 
 # ruinedPlateau.csv
 os.system("type nul > ruinedPlateau.csv")
-f = open("../The Main Script Zone/ruinedPlateau.csv", "w")
+f = open("ruinedPlateau.csv", "w")
 fwrite = csv.writer(f)
 regionLocation = [
     # Name, x, y, z, townStatus
@@ -281,7 +281,7 @@ f.close()
 
 # MiniPlatPen.csv
 os.system("type nul > miniPlatPen.csv")
-f = open("../The Main Script Zone/miniPlatPen.csv", "w")
+f = open("miniPlatPen.csv", "w")
 fwrite = csv.writer(f)
 regionLocation = [
     # Name, x, y, z, townStatus
@@ -293,7 +293,7 @@ f.close()
 
 # kingdomOfJavi.csv
 os.system("type nul > kingdomOfJavi.csv")
-f = open("../The Main Script Zone/kingdomOfJavi.csv", "w")
+f = open("kingdomOfJavi.csv", "w")
 fwrite = csv.writer(f)
 regionLocation = [
     # Name, x, y, z, townStatus
@@ -313,7 +313,7 @@ f.close()
 
 # igachiPlain.csv
 os.system("type nul > igachiPlain.csv")
-f = open("../The Main Script Zone/igachiPlain.csv", "w")
+f = open("igachiPlain.csv", "w")
 fwrite = csv.writer(f)
 regionLocation = [
     # Name, x, y, z, townStatus
@@ -335,7 +335,7 @@ f.close()
 
 
 os.system("type nul > regions.csv")
-f = open("../The Main Script Zone/regions.csv", "w")
+f = open("regions.csv", "w")
 fwrite = csv.writer(f)
 regions = [[0, "Larmen Plains", 0, 40, 0, 20, 0, 0], [1, "the Rise", 21, 40, 21, 39, 0, 20],
            [2, "the Desert South", 0, 20, 21, 84, 0, 0], [3, "the Desert North", 0, 149, 85, 100, 0, 0],
@@ -350,7 +350,7 @@ f.close()
 # character csvs
 # Lori
 os.system("type nul > lori.csv")
-f = open("../The Main Script Zone/lori.csv", "w")
+f = open("lori.csv", "w")
 fwrite = csv.writer(f)
 loriAblities = ["Stamina", "Slash", "Sweeping Slash", "Second Wind", "Guard Up"]
 loriCosts = [0, 0, 1, 5, 2]
@@ -372,7 +372,7 @@ f.close()
 
 # Lauren
 os.system("type nul > lauren.csv")
-f = open("../The Main Script Zone/lauren.csv", "w")
+f = open("lauren.csv", "w")
 fwrite = csv.writer(f)
 laurenAblities = ["Light Arrows", "Smiting Arrow", "Restoring Arrow", "Focus Light", "Quick Hands"]
 laurenCosts = [0, 1, 1, 1, 0]
@@ -394,7 +394,7 @@ f.close()
 
 # Marcus
 os.system("type nul > marcus.csv")
-f = open("../The Main Script Zone/marcus.csv", "w")
+f = open("marcus.csv", "w")
 fwrite = csv.writer(f)
 marcusAblities = ["Stamina", "Axe", "Taunting Cry", "Full Guard", "Rally"]
 marcusCosts = [0, 0, 1, 5, 4]
@@ -416,7 +416,7 @@ f.close()
 
 # Julius
 os.system("type nul > julius.csv")
-f = open("../The Main Script Zone/julius.csv", "w")
+f = open("julius.csv", "w")
 fwrite = csv.writer(f)
 juliusAblities = ["Mana", "Dagger Poke", "Lightning Bolt", "Close Wound", "Fire Ball"]
 juliusCosts = [0, 0, 2, 6, 8]

@@ -9,8 +9,7 @@ import os
 
 class Combat(object):
 
-    def __init__(self, location, continueStatus = True):
-        self.location = location
+    def __init__(self, continueStatus = True):
         self.order = []
         self.listing = {}
         self.continueStatus = continueStatus
