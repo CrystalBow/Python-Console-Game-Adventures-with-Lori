@@ -4,6 +4,7 @@ from Monster import Monster
 import random
 from ImportantFunctions import inputAndCheck
 import csv
+from gameMenu import GameMenu
 import os
 
 
@@ -17,6 +18,7 @@ class Combat(object):
         self.defRaise = []
         self.atkRaise = []
         self.protected = []
+        self.exp = 0
 
     def combatantOrganizer(self):
         organizedOrder = []
@@ -35,7 +37,7 @@ class Combat(object):
             counter += 1
         self.order = organizedOrder
 
-    def skillHandler(self, ally, skill):
+    def skillHandler(self, ally :PlayableCharacter, skill):
         if skill == "Axe" or skill == "Smiting Arrow" or skill == "Dagger Poke" or skill == "Slash":
             target = self.targetChooser()
             if ally.attack - self.listing[target].defense > 0:
@@ -103,6 +105,19 @@ class Combat(object):
             for fighter in self.listing:
                 if isinstance(self.listing[fighter], PlayableCharacter):
                     self.skillHandler(self.listing[fighter], "Focus Light0")
+        elif skill == "Quick Hands":
+            menuMoment = GameMenu()
+            menuMoment.update([ally])
+            itemChoices = menuMoment.displayPC(ally, pcSkip= True)
+            itemSlected = inputAndCheck("Lauren's call: ", itemChoices)
+            target = self.targetChooser(Ally= True, User= PlayableCharacter("No One"))
+            item = ally.inventory[itemSlected]
+            updatedTarget = item.effectHandler(self.listing[target], equip= False)
+            self.listing[target] = updatedTarget
+            ally.inventory.remove(item)
+            self.listing[ally.displayName] = ally
+            
+
 
     def foePrep(self, autoSlected= ""):
         luck = int(random.random() * 100)
@@ -225,7 +240,6 @@ class Combat(object):
             return forum[i]
 
     def intiativeRoll(self, Combatant):
-
         # defualt for now
         self.listing.update({Combatant.displayName : Combatant})
         self.order.append([Combatant.displayName, random.random()])
@@ -233,6 +247,7 @@ class Combat(object):
     def combatEndCheck(self):
         removalList = []
         follow = False
+        playerCounter = 0
         for figther in self.listing:
             removeFlag = self.listing[figther].deathCheck()
             if removeFlag == True:
@@ -246,8 +261,13 @@ class Combat(object):
                 continue
             if isinstance(self.listing[figther], Monster):
                 follow = True
+            if isinstance(self.listing[figther], PlayableCharacter) and self.listing[figther].currentHealth > 0:
+                playerCounter += 1
         for body in removalList:
+            self.exp = self.exp + self.listing[body].experience
             self.listing.pop(body)
+        if playerCounter <= 0:
+            follow = False
         return follow
 
     def baseAttack(self, attacker):
@@ -279,11 +299,12 @@ class Combat(object):
                 flag = True
         try:
             if target not in self.protected:
-                self.attackDispaly(attacker, target)
-                if (attacker.attack - self.listing[target].defense >= 0):
-                    self.listing[target].currentHealth = self.listing[target].currentHealth - attacker.attack + self.listing[target].defense
-                else:
-                    self.listing[target].currentHealth = self.listing[target].currentHealth - 1
+                if self.listing[target].level > 0 and self.listing[target].currentHealth > 0:
+                    self.attackDispaly(attacker, target)
+                    if (attacker.attack - self.listing[target].defense >= 0):
+                        self.listing[target].currentHealth = self.listing[target].currentHealth - attacker.attack + self.listing[target].defense
+                    else:
+                        self.listing[target].currentHealth = self.listing[target].currentHealth - 1
         except UnboundLocalError:
             pass
 

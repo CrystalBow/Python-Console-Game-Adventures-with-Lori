@@ -1,11 +1,1 @@
-0,Larmen Plains,0,40,0,20,0,0
-1,the Rise,21,40,21,39,0,20
-2,the Desert South,0,20,21,84,0,0
-3,the Desert North,0,149,85,100,0,0
-4,Ruined Plateau,21,149,40,84,20,20
-5,the Death Lands,41,175,0,39,0,4
-6,Goblin Montain,176,200,0,10,2,20
-7,Drame Kingdom,176,200,11,47,0,4
-8,Mini Plateau,150,175,40,49,20,20
-9,Kindom of Javi,150,200,50,70,0,0
-10,Igachi Plain,150,200,71,100,0,0
+0,Larmen Plains,0,40,0,20,0,01,the Rise,21,40,21,39,3,32,the Desert South,0,20,21,84,-3,-33,the Desert North,0,149,85,100,0,04,Ruined Plateau,21,149,40,84,6,65,the Death Lands,41,175,0,39,-3,-36,Goblin Montain,176,200,0,10,0,07,Drame Kingdom,176,200,11,47,0,48,Mini Plateau,150,175,40,49,6,69,Kindom of Javi,150,200,50,70,0,010,Igachi Plain,150,200,71,100,0,0

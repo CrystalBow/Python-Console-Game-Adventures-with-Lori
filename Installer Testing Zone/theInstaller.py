@@ -55,7 +55,7 @@ battles = [
     [30, "Veteran Rouge", 36, "Mage", 51, "Giant Wolf", 61, "Exiled Squire", 71, "Veteran Thug", 81, "Shambling Moss"],
     [36, "Orc", 61, "Warrior", 71, "Veteran Orc", 81, "Master Bandit"],
     [25, "Snake", 51, "Sand Elemental", 61, "Traveling Swordsman", 71, "Master Thief", 81, "Fire Mage"],
-    [15, "Crazed Prophet", 26, "Survivor", 61, "Warrior in Training", 76, "Desert Hounds", 91, "Sand Worms"],
+    [15, "Crazed Prophet", 26, "Survivor", 61, "Warrior in Training", 76, "Desert Hound", 91, "Sand Worm"],
     [31, "Master Rouge", 52, "Master Thug", 61, "Giant Dire Wolf", 71, "Elite Orc", 81, "Master Ronin", 91, "Orc Boss"],
     [36, "Veteran Bandit", 61, "Zombie", 71, "Skeleton", 81, "Necromancy Fanatic", 91, "Necromancer"],
     [41, "Wyvern", 61, "Goblin", 86, "Goblin Squire", 96, "Goblin Knight"],
@@ -218,10 +218,10 @@ f = open("theDeathLands.csv", "w")
 fwrite = csv.writer(f)
 regionLocation = [
     # Name, x, y, z, townStatus
-    ["Larmen Oasis", 43, 4, 0, 1],
-    ["Ohio Oasis", 101, 20, 0, 1],
-    ["Drame Oasis", 170, 34, 0, 1],
-    ["Gobbi Oasis", 168, 4, 0, 1]
+    ["Larmen Oasis", 43, 4, -3, 1],
+    ["Ohio Oasis", 101, 20, -3, 1],
+    ["Drame Oasis", 170, 34, -3, 1],
+    ["Gobbi Oasis", 168, 4, -3, 1]
 ]
 for location in regionLocation:
     fwrite.writerow(location)
@@ -269,11 +269,11 @@ f = open("ruinedPlateau.csv", "w")
 fwrite = csv.writer(f)
 regionLocation = [
     # Name, x, y, z, townStatus
-    ["West Seal", 110, 46, 20, 0],
-    ["South Seal", 129, 40, 20, 0],
-    ["East Seal", 149, 46, 20, 0],
-    ["North Seal", 129, 84, 20, 0],
-    ["Castle of Ruin", 129, 46, 0, 0]
+    ["West Seal", 110, 46, 6, 0],
+    ["South Seal", 129, 40, 6, 0],
+    ["East Seal", 149, 46, 6, 0],
+    ["North Seal", 129, 84, 6, 0],
+    ["Castle of Ruin", 129, 46, 6, 0]
 ]
 for location in regionLocation:
     fwrite.writerow(location)
@@ -285,7 +285,7 @@ f = open("miniPlatPen.csv", "w")
 fwrite = csv.writer(f)
 regionLocation = [
     # Name, x, y, z, townStatus
-    ["Elder Cave", 162, 44, 20, 0]
+    ["Elder Cave", 162, 44, 6, 0]
 ]
 for location in regionLocation:
     fwrite.writerow(location)
@@ -337,11 +337,11 @@ f.close()
 os.system("type nul > regions.csv")
 f = open("regions.csv", "w")
 fwrite = csv.writer(f)
-regions = [[0, "Larmen Plains", 0, 40, 0, 20, 0, 0], [1, "the Rise", 21, 40, 21, 39, 0, 20],
-           [2, "the Desert South", 0, 20, 21, 84, 0, 0], [3, "the Desert North", 0, 149, 85, 100, 0, 0],
-           [4, "Ruined Plateau", 21, 149, 40, 84, 20, 20], [5, "the Death Lands", 41, 175, 0, 39, 0, 4],
-           [6, "Goblin Montain", 176, 200, 0, 10, 2, 20], [7, "Drame Kingdom", 176, 200, 11, 47, 0, 4],
-           [8, "Mini Plateau", 150, 175, 40, 49, 20, 20], [9, "Kindom of Javi", 150, 200, 50, 70, 0, 0],
+regions = [[0, "Larmen Plains", 0, 40, 0, 20, 0, 0], [1, "the Rise", 21, 40, 21, 39, 3, 3],
+           [2, "the Desert South", 0, 20, 21, 84, -3, -3], [3, "the Desert North", 0, 149, 85, 100, 0, 0],
+           [4, "Ruined Plateau", 21, 149, 40, 84, 6, 6], [5, "the Death Lands", 41, 175, 0, 39, -3, -3],
+           [6, "Goblin Montain", 176, 200, 0, 10, 0, 0], [7, "Drame Kingdom", 176, 200, 11, 47, 0, 0],
+           [8, "Mini Plateau", 150, 175, 40, 49, 6, 6], [9, "Kindom of Javi", 150, 200, 50, 70, 0, 0],
            [10, "Igachi Plain", 150, 200, 71, 100, 0, 0]]
 for region in regions:
     fwrite.writerow(region)
