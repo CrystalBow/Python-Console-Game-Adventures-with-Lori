@@ -24,8 +24,8 @@ class Combat(object):
         organizedOrder = []
         theStringOrder = []
         NumOrder = []
-        for listing in self.order:
-            NumOrder.append(listing[1])
+        for fighter in self.order:
+            NumOrder.append(fighter[1])
         NumOrder.sort()
         for Num in NumOrder:
             for item in self.order:
@@ -255,9 +255,9 @@ class Combat(object):
                 i = 0
                 for thing in self.order:
                     if thing[0] == figther:
-                        self.order.pop(i)
                         break
                     i += 1
+                self.order.pop(i)
                 continue
             if isinstance(self.listing[figther], Monster):
                 follow = True
@@ -349,29 +349,41 @@ class Combat(object):
                             self.saftey(Ally= ally.displayName, Removal= True)
                 except TypeError:
                     pass
-                counter = 0
+                counter = -1
                 for defender in self.defRaise:
+                    counter += 1
                     if defender[0] == ally.displayName:
                         defender[1] = defender[1] - 1
                         if defender[1] <= 0:
                             ally.defense = ally.defense - defender[2]
-                            self.defRaise.pop(counter)
-                    counter += 1
-                counter = 0
+                            break
+                try:
+                    self.defRaise.pop(counter)
+                except IndexError:
+                    pass
+                counter = -1
                 for attacker in self.atkRaise:
+                    counter += 1
                     if attacker[0] == ally.displayName:
                         attacker[1] = attacker[1] - 1
                         if attacker[1] <= 0:
                             ally.attack = ally.attack - attacker[2]
-                            self.defRaise.pop(counter)
-                    counter += 1
-                counter = 0
+                            break
+                try:
+                    self.atkRaise.pop(counter)
+                except IndexError:
+                    pass
+                counter = -1
                 for annoyance in self.taunt:
+                    counter += 1
                     if annoyance[0] == ally.displayName:
                         annoyance[1] = annoyance[1] - 1
                         if annoyance[1] <= 0:
-                            self.defRaise.pop(counter)
-                    counter += 1
+                            break
+                try:
+                    self.taunt.pop(counter)
+                except IndexError:
+                    pass
 
     def saftey(self, availability= True, Ally= None, Removal= False):
         counter = 0
@@ -443,7 +455,7 @@ class Combat(object):
                 flag = True
         return string
 
-    def attackDispaly(self, attacker, target, attackName= None):
+    def attackDispaly(self, attacker, target):
         #might remove if it slows down game to much. Might rewrite for more flavor.
         if isinstance(attacker, Monster):
             input(attacker.displayName + " used their " + attacker.weapon + " on " + target + "(Enter to continue)")
